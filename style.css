@@ -1,0 +1,157 @@
+body {
+    background-color: #f7fafc;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #2d3748;
+    margin: 0;
+    padding: 20px;
+}
+.sim-container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+h1 { text-align: center; color: #1a365d; margin-bottom: 5px; }
+.subtitle { text-align: center; color: #4a5568; margin-bottom: 30px; font-weight: 500; }
+
+.layout {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.panel {
+    flex: 1;
+    min-width: 320px;
+}
+
+.control-group {
+    margin-bottom: 18px;
+    background: #edf2f7;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #3182ce;
+}
+.temp-group {
+    border-left-color: #dd6b20;
+}
+.control-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.control-group input[type="range"] {
+    width: 100%;
+}
+
+/* Indicador del 100% */
+.total-indicator {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+.valid { background-color: #c6f6d5; color: #22543d; border: 1px solid #9ae6b4; }
+.invalid { background-color: #fed7d7; color: #742a2a; border: 1px solid #feb2b2; }
+
+/* Botón Calcular */
+.btn-action {
+    width: 100%;
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+}
+.btn-action:hover { background-color: #2c5282; }
+
+/* Gráficos del Vaso */
+.beaker-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.beaker {
+    width: 150px;
+    height: 180px;
+    border: 5px solid #4a5568;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+}
+.liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #e2e8f0;
+    transition: height 0.5s ease, background-color 0.5s ease;
+}
+
+.bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.7) 15%, transparent 15%),
+                      radial-gradient(circle, rgba(255,255,255,0.5) 10%, transparent 10%);
+    background-size: 12px 12px, 20px 20px;
+    opacity: 0;
+}
+@keyframes fizz {
+    0% { background-position: 0 0, 5px 10px; }
+    100% { background-position: 0 -80px, 5px -70px; }
+}
+.fizzing { animation: fizz 0.8s linear infinite; }
+
+/* Pantalla del pHmetro */
+.meter-container { text-align: center; margin-bottom: 25px; }
+.ph-display {
+    display: inline-block;
+    background: #1a202c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    min-width: 160px;
+}
+.ph-label { font-size: 11px; color: #a0aec0; letter-spacing: 1px; }
+.ph-value { font-size: 34px; font-weight: bold; margin: 4px 0; font-family: monospace; }
+.ph-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #4a5568;
+}
+
+/* Clases de colores para los Badges */
+.badge-acido { background-color: #e53e3e !important; color: white; }
+.badge-neutro { background-color: #38a169 !important; color: white; }
+.badge-base { background-color: #3182ce !important; color: white; }
+
+/* Tabla de Datos */
+.table-container h3 { margin-top: 0; font-size: 16px; color: #2d3748; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f7fafc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+th { background-color: #4a5568; color: white; font-size: 13px; }
+.highlight-row { font-weight: bold; background-color: #edf2f7; }
